@@ -1,0 +1,34 @@
+# Dependencies
+/vendor/
+/node_modules/
+/vendor/bundle/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Laravel
+/storage/*.key
+/bootstrap/cache/*
+
+# Flutter
+app_chofer/build/
+app_chofer/.dart_tool/
+app_chofer/.pub/
+app_chofer/android/
+app_chofer/ios/
+app_chofer/web/
+
+# Misc
+*.log
