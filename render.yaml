@@ -1,0 +1,28 @@
+databases:
+  - name: macbi_transporte
+    databaseName: macbi_transporte
+    plan: free
+
+services:
+  - type: web
+    name: macbi-transporte
+    runtime: php
+    buildCommand: |
+      cd backend
+      composer install --no-dev --optimize-autoloader
+      php artisan migrate --force
+      php artisan config:cache
+      php artisan route:cache
+    startCommand: |
+      cd backend
+      php artisan serve --port=$PORT --host=0.0.0.0
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_URL
+        fromDatabase:
+          name: macbi_transporte
+          envVarSuffix: DATABASE_URL
